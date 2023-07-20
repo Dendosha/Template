@@ -1,0 +1,18 @@
+@use "sass:math";
+
+@function rem($size) {
+	@return calc($size / 16)+rem;
+}
+
+@function em($size, $rSize: 16) {
+	@return calc($size / $rSize)+em;
+}
+
+@function lh($value, $fz) {
+	@return calc($value / $fz);
+}
+
+@function round($value, $fractionDigits: 0) {
+	$power: math.pow(10, $fractionDigits);
+	@return math.div(math.round($power * $value), $power);
+}

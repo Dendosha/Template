@@ -1,0 +1,50 @@
+.page {
+
+	// .page__custom-checkboxes
+
+	&__custom-checkboxes {}
+}
+
+.custom-checkboxes {
+
+	// .custom-checkboxes__container
+
+	&__container {}
+
+	// .custom-checkboxes__title
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: rem(20);
+		}
+	}
+
+	// .custom-checkboxes__body
+
+	&__body {}
+
+	// .custom-checkboxes__custom-checkbox
+
+	&__custom-checkbox {
+		&:not(:last-child) {
+			margin-bottom: rem(10);
+		}
+	}
+}
+
+.custom-checkbox {
+
+	// .custom-checkbox__checkmark
+
+	&__checkmark {}
+
+	// .custom-checkbox__custom-checkmark
+
+	&__custom-checkmark {}
+
+	// .custom-checkbox__checkbox-label
+
+	&__checkbox-label {
+		font-size: rem(20);
+	}
+}

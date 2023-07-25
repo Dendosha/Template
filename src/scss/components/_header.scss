@@ -1,6 +1,15 @@
 .header {
-	padding-block: rem(20);
-
+	padding-block: rem(30);
 	text-align: center;
-	font-size: rem(32);
+
+	// .header__container
+
+	&__container {}
+
+	// .header__title
+
+	&__title {
+		font-size: rem(40);
+		font-weight: 700;
+	}
 }

@@ -25,6 +25,9 @@
 // General styles
 @import "./components/general";
 
+// Form components
+@import "./components/form-components/checkboxes";
+
 html {
 	font-family: Arial, Helvetica, sans-serif;
 	font-style: normal;

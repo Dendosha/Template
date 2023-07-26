@@ -3,22 +3,22 @@
 
 	position: relative;
 
-	&>input[type="checkbox"]:checked+.--custom-checkmark {
+	&>input[type="checkbox"]:checked+.--checkbox-checkmark {
 		&::before {
 			transform: scale(1);
 		}
 	}
 
-	&:focus-within>input[type="checkbox"]+.--custom-checkmark {
+	&:focus-within>input[type="checkbox"]+.--checkbox-checkmark {
 		box-shadow: 0 0 rem(8) var(--checkmark-color);
 	}
 
-	&>input[type="checkbox"]:disabled+.--custom-checkmark {
+	&>input[type="checkbox"]:disabled+.--checkbox-checkmark {
 		filter: brightness(0.5);
 	}
 }
 
-.--custom-checkmark {
+.--checkbox-checkmark {
 	position: absolute;
 	top: 0;
 	left: 0;

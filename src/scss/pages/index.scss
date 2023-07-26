@@ -1,8 +1,16 @@
 .page {
 
+	&>section:not(:last-child) {
+		margin-bottom: rem(30);
+	}
+
 	// .page__custom-checkboxes
 
 	&__custom-checkboxes {}
+
+	// .page__custom-radiobuttons
+
+	&__custom-radiobuttons {}
 }
 
 .custom-checkboxes {
@@ -13,11 +21,7 @@
 
 	// .custom-checkboxes__title
 
-	&__title {
-		&:not(:last-child) {
-			margin-bottom: rem(20);
-		}
-	}
+	&__title {}
 
 	// .custom-checkboxes__body
 
@@ -26,9 +30,7 @@
 	// .custom-checkboxes__custom-checkbox
 
 	&__custom-checkbox {
-		&:not(:last-child) {
-			margin-bottom: rem(10);
-		}
+		@extend %custom-component;
 	}
 }
 
@@ -45,6 +47,44 @@
 	// .custom-checkbox__checkbox-label
 
 	&__checkbox-label {
-		font-size: rem(20);
+		@extend %custom-component-label;
+	}
+}
+
+.custom-radiobuttons {
+
+	// .custom-radiobuttons__container
+
+	&__container {}
+
+	// .custom-radiobuttons__title
+
+	&__title {}
+
+	// .custom-radiobuttons__body
+
+	&__body {}
+
+	// .custom-radiobuttons__custom-radiobutton
+
+	&__custom-radiobutton {
+		@extend %custom-component;
+	}
+}
+
+.custom-radiobutton {
+
+	// .custom-radiobutton__checkmark
+
+	&__checkmark {}
+
+	// .custom-radiobutton__custom-checkmark
+
+	&__custom-checkmark {}
+
+	// .custom-radiobutton__radiobutton-label
+
+	&__radiobutton-label {
+		@extend %custom-component-label;
 	}
 }

@@ -3,6 +3,21 @@
 
 	position: relative;
 
+	&>.--radiobutton-checkmark,
+	&>.--radiobutton-label {
+		cursor: pointer;
+	}
+
+	@media (any-hover: hover) {
+		&>input[type="radio"]:not(:disabled)~.--radiobutton-checkmark:hover {
+			box-shadow: 0 0 rem(8) var(--checkmark-color);
+		}
+
+		&>input[type="radio"]:not(:disabled)~.--radiobutton-label:hover {
+			text-shadow: 0 0 rem(4) var(--checkmark-color);
+		}
+	}
+
 	&>input[type="radio"]:checked+.--radiobutton-checkmark {
 		&::before {
 			transform: scale(1);
@@ -32,6 +47,8 @@
 	border: rem(2) solid var(--checkmark-color);
 	border-radius: 50%;
 
+	box-shadow: 0 0 rem(8) transparent;
+
 	transition: box-shadow 0.3s ease;
 
 	&::before {
@@ -51,4 +68,8 @@
 .--radiobutton-label {
 	display: inline-block;
 	padding-left: rem(30);
+
+	text-shadow: 0 0 rem(4) transparent;
+
+	transition: text-shadow 0.5s ease;
 }

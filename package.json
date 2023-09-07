@@ -46,7 +46,7 @@
 		"webpack-stream": "^7.0.0"
 	},
 	"browserslist": [
-		">0.5, last 5 versions"
+		"defaults"
 	],
 	"babel": {
 		"presets": [

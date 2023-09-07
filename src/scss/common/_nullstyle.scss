@@ -13,7 +13,8 @@
 	box-sizing: border-box;
 }
 
-:active {
+:active,
+:focus {
 	outline: none;
 }
 
@@ -45,6 +46,7 @@ button,
 textarea,
 select,
 option {
+	font-size: inherit;
 	font-family: inherit;
 }
 

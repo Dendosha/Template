@@ -1,49 +1,47 @@
-import dartSASS from "sass"
-import gulpSASS from "gulp-sass"
+import gulp from "gulp"
+import path from "../config/path.js"
+import plugins from "../config/plugins.js"
+
+import dartSass from "sass"
+import gulpSass from "gulp-sass"
 import rename from "gulp-rename"
 
-import cleanCSS from "gulp-clean-css"
+import cleanCss from "gulp-clean-css"
 import autoPrefixer from "gulp-autoprefixer"
-import groupCSSMediaQueries from "gulp-group-css-media-queries"
+import groupCssMediaQueries from "gulp-group-css-media-queries"
 
-const sass = gulpSASS(dartSASS)
+const sass = gulpSass(dartSass)
 
 const scss = () => {
-	return app.gulp.src(app.path.src.scss, { sourcemaps: app.isDev })
-		.pipe(app.plugins.plumber(
-			app.plugins.notify.onError({
+	return gulp.src(path.src.scss, { sourcemaps: app.isDev })
+		.pipe(plugins.plumber(
+			plugins.notify.onError({
 				title: 'SCSS',
-				message: '<%= error.message %>',
+				message: 'Error: <%= error.message %>'
 			})
 		))
+		.pipe(plugins.replace(/@img\//g, '../img/'))
 		.pipe(sass({
 			outputStyle: 'expanded',
 		}))
-		.pipe(app.plugins.replace(/@img\//g, '../img/'))
-		.pipe(
-			app.plugins.gulpIf(
-				app.isBuild,
-				groupCSSMediaQueries()
-			)
-		)
-		.pipe(
-			autoPrefixer({
-				// grid: "no-autoplace",
-				cascade: false,
-			})
-		)
-		.pipe(app.gulp.dest(app.path.build.css))
-		.pipe(
-			app.plugins.gulpIf(
-				app.isBuild,
-				cleanCSS()
-			)
-		)
+		.pipe(plugins.gulpIf(
+			app.isBuild,
+			groupCssMediaQueries()
+		))
+		.pipe(plugins.gulpIf(
+			app.isBuild,
+			autoPrefixer()
+		))
+		.pipe(gulp.dest(path.build.css))
+		.pipe(plugins.gulpIf(
+			app.isBuild,
+			cleanCss()
+		))
 		.pipe(rename({
-			extname: ".min.css",
+			extname: '.min.css',
 		}))
-		.pipe(app.gulp.dest(app.path.build.css))
-		.pipe(app.plugins.browserSync.stream())
+		.pipe(gulp.dest(path.build.css))
+		.pipe(plugins.browserSync.stream())
 }
 
 export default scss

@@ -1,21 +1,35 @@
-import webpackStream from "webpack-stream"
+import gulp from "gulp"
+import path from "../config/path.js"
+import plugins from "../config/plugins.js"
+
+import webpack from "webpack-stream"
+import babel from "gulp-babel"
 
 const js = () => {
-	return app.gulp.src(app.path.src.js, { sourcemaps: app.isDev })
-		.pipe(app.plugins.plumber(
-			app.plugins.notify.onError({
+	return gulp.src(path.src.js, { sourcemaps: app.isDev })
+		.pipe(plugins.plumber(
+			plugins.notify.onError({
 				title: 'JS',
-				message: '<%= error.message %>',
+				message: 'Error: <%= error.message %>'
 			})
 		))
-		.pipe(webpackStream({
+		.pipe(babel())
+		.pipe(webpack({
 			mode: app.isBuild ? 'production' : 'development',
 			output: {
 				filename: 'app.min.js',
+			},
+			module: {
+				rules: [
+					{
+						test: /\.css$/,
+						use: ['style-loader', 'css-loader'],
+					}
+				]
 			}
 		}))
-		.pipe(app.gulp.dest(app.path.build.js))
-		.pipe(app.plugins.browserSync.stream())
+		.pipe(gulp.dest(path.build.js))
+		.pipe(plugins.browserSync.stream())
 }
 
 export default js

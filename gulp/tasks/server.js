@@ -1,7 +1,10 @@
+import path from "../config/path.js"
+import plugins from "../config/plugins.js"
+
 const server = (done) => {
-	app.plugins.browserSync.init({
+	plugins.browserSync.init({
 		server: {
-			baseDir: `${app.path.build.html}`,
+			baseDir: `${path.build.html}`,
 		},
 		notify: false,
 		port: 3000,

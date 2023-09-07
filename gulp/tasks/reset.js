@@ -1,6 +1,8 @@
-import { deleteAsync } from "del"
+import path from "../config/path.js";
+import { deleteAsync } from "del";
+
 const reset = () => {
-	return deleteAsync(app.path.clean)
+	return deleteAsync(path.clean)
 }
 
 export default reset

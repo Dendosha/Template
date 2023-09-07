@@ -1,41 +1,45 @@
-import fs from "fs";
-import fonter from "gulp-fonter-fix"
+import gulp from "gulp"
+import path from "../config/path.js"
+import plugins from "../config/plugins.js"
+
+import fs from "fs"
+import fonter from "gulp-fonter"
 import ttf2woff2 from "gulp-ttf2woff2"
 
 export const otfToTtf = () => {
-	return app.gulp.src(`${app.path.srcFolder}/fonts/*.otf`, {})
-		.pipe(app.plugins.plumber(
-			app.plugins.notify.onError({
-				title: 'FONTS (otfToTtf)',
-				message: '<%= error.message %>',
+	return gulp.src(`${path.srcFolder}/fonts/*.otf`, {})
+		.pipe(plugins.plumber(
+			plugins.notify.onError({
+				title: 'FONTS (otf to ttf)',
+				message: 'Error: <%= error.message %>'
 			})
 		))
 		.pipe(fonter({
 			formats: ['ttf'],
 		}))
-		.pipe(app.gulp.dest(`${app.path.srcFolder}/fonts/`))
+		.pipe(gulp.dest(`${path.srcFolder}/fonts/`))
 }
 
 export const ttfToWoff = () => {
-	return app.gulp.src(`${app.path.srcFolder}/fonts/*.ttf`, {})
-		.pipe(app.plugins.plumber(
-			app.plugins.notify.onError({
-				title: 'FONTS (ttfToWoff)',
-				message: '<%= error.message %>',
+	return gulp.src(`${path.srcFolder}/fonts/*.ttf`, {})
+		.pipe(plugins.plumber(
+			plugins.notify.onError({
+				title: 'FONTS (ttf to woff)',
+				message: 'Error: <%= error.message %>'
 			})
 		))
 		.pipe(fonter({
 			formats: ['woff'],
 		}))
-		.pipe(app.gulp.dest(app.path.build.fonts))
-		.pipe(app.gulp.src(`${app.path.srcFolder}/fonts/*.ttf`))
+		.pipe(gulp.dest(path.build.fonts))
+		.pipe(gulp.src(`${path.srcFolder}/fonts/*.ttf`))
 		.pipe(ttf2woff2())
-		.pipe(app.gulp.dest(app.path.build.fonts))
+		.pipe(gulp.dest(path.build.fonts))
 }
 
 export const fontsStyle = () => {
-	let fontsFile = `${app.path.srcFolder}/scss/_fonts.scss`
-	fs.readdir(app.path.build.fonts, function (err, fontsFiles) {
+	let fontsFile = `${path.srcFolder}/scss/_fonts.scss`
+	fs.readdir(path.build.fonts, function (err, fontsFiles) {
 		if (fontsFiles) {
 			if (!fs.existsSync(fontsFiles)) {
 				fs.writeFile(fontsFile, '', cb)
@@ -87,6 +91,6 @@ export const fontsStyle = () => {
 			}
 		}
 	})
-	return app.gulp.src(app.path.srcFolder)
+	return gulp.src(path.srcFolder)
 	function cb() { }
 }

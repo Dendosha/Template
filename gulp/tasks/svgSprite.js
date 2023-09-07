@@ -1,22 +1,26 @@
-import svgSprite from "gulp-svg-sprite"
+import gulp from "gulp"
+import path from "../config/path.js"
+import plugins from "../config/plugins.js"
 
-const spriteSvg = () => {
-	return app.gulp.src(app.path.src.svgicons, {})
-		.pipe(app.plugins.plumber(
-			app.plugins.notify.onError({
-				title: 'SVGICONS',
-				message: '<%= error.message %>',
+import gulpSvgSprite from "gulp-svg-sprite"
+
+const svgSprite = () => {
+	return gulp.src(path.src.svgIcons, {})
+		.pipe(plugins.plumber(
+			plugins.notify.onError({
+				title: 'SVG Sprite',
+				message: 'Error: <%= error.message %>'
 			})
 		))
-		.pipe(svgSprite({
+		.pipe(gulpSvgSprite({
 			mode: {
 				stack: {
 					sprite: `../icons/icons.svg`,
 					example: true,
-				}
-			}
+				},
+			},
 		}))
-		.pipe(app.gulp.dest(app.path.build.images))
+		.pipe(gulp.dest(path.build.img))
 }
 
-export default spriteSvg
+export default svgSprite

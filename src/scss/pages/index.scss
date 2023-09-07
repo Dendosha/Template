@@ -11,6 +11,10 @@
 	// .page__custom-radiobuttons
 
 	&__custom-radiobuttons {}
+
+	// .page__custom-select
+
+	&__custom-select {}
 }
 
 .custom-checkboxes {
@@ -86,5 +90,54 @@
 
 	&__radiobutton-label {
 		@extend %custom-component-label;
+	}
+}
+
+.custom-select {
+
+	// .custom-select__container
+
+	&__container {}
+
+	// .custom-select__title
+
+	&__title {}
+
+	// .custom-select__selectlist
+
+	&__selectlist {}
+
+	// .custom-select__control-buttons
+
+	&__control-buttons {
+		display: inline-grid;
+		grid-template-columns: repeat(3, auto);
+		gap: rem(10);
+
+		font-size: rem(20);
+		margin-left: rem(25);
+	}
+
+	// .custom-select__button
+
+	&__button {
+		min-width: rem(100);
+		border-radius: rem(10);
+
+		padding: rem(10);
+		background-color: #fff;
+
+		box-shadow: 0 0 rem(10) transparent;
+		transition: box-shadow 0.3s ease;
+
+		@media (any-hover: hover) {
+			&:hover {
+				box-shadow: 0 0 rem(10) #fff;
+			}
+		}
+
+		&:focus {
+			box-shadow: 0 0 rem(10) #fff;
+		}
 	}
 }

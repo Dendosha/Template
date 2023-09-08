@@ -94,13 +94,16 @@
 					<div id="selectlist-1" data-custom-element="selectlist" data-placeholder="Choose an option"
 						data-labelledby="selectlistLabel" data-listbox-id="selectlistListbox"
 						data-selectlist-items="One really big option of selectlist; Option 2; Option 3; Option 4"
-						class="custom-select__selectlist --selectlist">
+						data-selected-item-index="0" class="custom-select__selectlist --selectlist">
 					</div>
-					<div id="selectlist-2" data-custom-element="selectlist" data-placeholder="Choose an option"
-						data-labelledby="selectlistLabel" data-listbox-id="selectlistListbox2"
-						data-selectlist-items="One really big option of selectlist; Option 2; Option 3; Option 4"
-						class="custom-select__selectlist --selectlist">
-					</div>
+
+					<!-- <select name="select" id="select">
+						<option value="select-1">One really big option of select</option>
+						<option value="select-2">Option 2</option>
+						<option value="select-3">Option 3</option>
+						<option value="select-4">Option 4</option>
+						<option value="select-5">Option 5</option>
+					</select> -->
 
 					<!-- <div class="custom-select__selectlist --selectlist">
 						<input type="text" name="selectlistCombobox" aria-hidden="true" tabindex="-1" class="--visually-hidden">
@@ -116,11 +119,16 @@
 								<li id="option-4" role="option" aria-selected="false" class="--selectlist__option">Option 4</li>
 							</ul>
 						</div>
-					</div>
-
-					<div class="custom-select__control-buttons">
-						<button id="openButton" class="custom-select__button">Open</button>
 					</div> -->
+
+					<div class="custom-select__controls">
+						<button id="openButton" class="custom-select__button">Open</button>
+						<button id="closeButton" class="custom-select__button">Close</button>
+						<div class="custom-select__control">
+							<input id="indexInput" type="text" placeholder="Index" class="custom-select__input">
+							<button id="selectButton" class="custom-select__button">Select</button>
+						</div>
+					</div>
 
 				</div>
 			</section>

@@ -1,5 +1,5 @@
 class SelectList {
-	static #allSelectLists = []
+	static #allSelectLists = new Map()
 
 	constructor(element, options) {
 		this.element = element
@@ -10,17 +10,18 @@ class SelectList {
 			visibleItemsCount: 4,
 		}
 
-		const selectlistHTML = this.render()
+		const selectlistHTML = this.#render()
 
-		SelectList.#allSelectLists.push(
-			{
-				element,
-				selectlistHTML,
-			}
-		)
+		SelectList.#allSelectLists.set(element, selectlistHTML)
+
+		if (this.options.selectedItemIndex) this.select(this.options.selectedItemIndex)
 	}
 
-	render() {
+	get #html() {
+		return SelectList.#allSelectLists.get(this.element)
+	}
+
+	#render() {
 		const input = document.createElement('input')
 		input.type = 'text'
 		input.ariaHidden = true
@@ -50,10 +51,15 @@ class SelectList {
 			selectlistOption.innerText = item
 			selectlistOption.id = `${this.options.listboxId}-${index}`
 			selectlistOption.role = 'option'
-			selectlistOption.ariaSelected = false
+			selectlistOption.setAttribute('aria-selected', false)
 			selectlistOption.classList.add('--selectlist__option')
 
 			listbox.append(selectlistOption)
+		})
+
+		const elementAttributes = Array.from(this.element.attributes)
+		elementAttributes.forEach(attribute => {
+			if (attribute.name.startsWith('data-')) this.element.removeAttribute(attribute.name)
 		})
 
 		this.element.append(input)
@@ -67,6 +73,31 @@ class SelectList {
 			listboxWrapper,
 			listbox
 		}
+	}
+
+	open() {
+		this.#html.combobox.setAttribute('aria-expanded', true)
+		this.#html.combobox.setAttribute('aria-controls', this.#html.listbox.id)
+
+		const selectedOption = this.#html.listbox.querySelector('li[aria-selected="true"]')
+		if (selectedOption) this.#html.combobox.setAttribute('aria-activedescendant', selectedOption.id)
+	}
+
+	close() {
+		this.#html.combobox.setAttribute('aria-expanded', false)
+		this.#html.combobox.removeAttribute('aria-controls')
+		this.#html.combobox.removeAttribute('aria-activedescendant')
+	}
+
+	select(selectedItemIndex) {
+		const selectedItem = document.getElementById(`${this.options.listboxId}-${selectedItemIndex}`)
+		if (selectedItem) {
+			this.#html.listbox.querySelector('li[aria-selected="true"]')?.setAttribute('aria-selected', false)
+			selectedItem.setAttribute('aria-selected', true)
+			this.#html.input.value = this.#html.combobox.innerText = selectedItem.innerText
+		}
+
+		return
 	}
 }
 

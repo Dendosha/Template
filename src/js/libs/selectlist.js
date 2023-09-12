@@ -15,7 +15,7 @@ class SelectList {
 
 		if (!this.options.placeholder) this.options.placeholder = this.#defaultOptions.placeholder
 		if (!this.options.label && !this.options.labelledby) this.options.label = this.#defaultOptions.label
-		if (!this.options.selectlistItems.filter(Boolean).length) this.options.selectlistItems = this.#defaultOptions.selectlistItems
+		if (!this.options.selectlistItems?.filter(Number)?.length) this.options.selectlistItems = this.#defaultOptions.selectlistItems
 		if (!this.options.visibleItemsCount) this.options.visibleItemsCount = this.#defaultOptions.visibleItemsCount
 
 		const selectlistHTML = this.#render()

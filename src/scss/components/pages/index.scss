@@ -97,97 +97,23 @@
 
 	// .custom-select__container
 
-	&__container {}
+	&__container {
+		display: grid;
+		grid-template-columns: repeat(2, min-content);
+		gap: rem(10);
+	}
 
 	// .custom-select__title
 
-	&__title {}
+	&__title {
+		grid-column: 1 / -1;
+	}
+
+	// .custom-select__selectlist-wrapper
+
+	&__selectlist-wrapper {}
 
 	// .custom-select__selectlist
 
 	&__selectlist {}
-
-	// .custom-select__controls
-
-	&__controls {
-		display: inline-grid;
-		grid-template-columns: repeat(3, auto);
-		gap: rem(10);
-
-		font-size: rem(20);
-		margin-left: rem(25);
-	}
-
-	// .custom-select__button
-
-	&__button {
-		min-width: rem(100);
-		border-radius: rem(10);
-
-		padding: rem(10);
-		background-color: #fff;
-
-		box-shadow: 0 0 rem(10) transparent;
-		transition: box-shadow 0.3s ease;
-
-		@media (any-hover: hover) {
-			&:hover {
-				box-shadow: 0 0 rem(10) #fff;
-			}
-		}
-
-		&:focus {
-			box-shadow: 0 0 rem(10) #fff;
-		}
-	}
-
-	// .custom-select__control
-
-	&__control {
-		min-width: rem(100);
-		border-radius: rem(10);
-
-		background-color: #fff;
-
-		&>input {
-			border-radius: rem(10) 0 0 rem(10);
-		}
-
-		&>button {
-			border-radius: 0 rem(10) rem(10) 0;
-		}
-	}
-
-	// .custom-select__input
-
-	&__input {
-		box-sizing: content-box;
-
-		max-width: rem(100);
-		height: 100%;
-		border-right: rem(2) solid #000;
-
-		text-align: center;
-
-		box-shadow: 0 0 rem(10) transparent;
-		transition: box-shadow 0.3s ease;
-
-		@media (any-hover: hover) {
-			&:hover {
-				box-shadow: 0 0 rem(10) #fff;
-			}
-		}
-
-		&:focus {
-			box-shadow: 0 0 rem(10) #fff;
-		}
-	}
-}
-
-#select {
-	margin-left: rem(50);
-
-	&:focus {
-		box-shadow: 0 0 rem(10) #fff;
-	}
 }

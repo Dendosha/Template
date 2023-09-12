@@ -11,7 +11,7 @@
 /* =============== Fonts =============== */
 
 // Nullify CSS
-@import "./common/nullstyle";
+@import "./common/reset";
 
 // SASS/SCSS Functions
 @import "./common/functions";
@@ -62,6 +62,6 @@ body {
 @import "./components/header";
 
 // Pages
-@import "./pages/index";
+@import "./components/pages/index";
 
 @import "./components/footer";

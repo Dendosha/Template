@@ -21,8 +21,8 @@ selectLists.forEach(element => {
 		label: element.dataset?.label,
 		labelledby: element.dataset?.labelledby,
 		listboxId: element.dataset.listboxId ?? `selectlist-${selectListsCount}`,
-		selectlistItems: element.dataset.selectlistItems.split(/;\s*/g),
-		selectedItemIndex: element.dataset.selectedItemIndex,
+		selectlistItems: element.dataset?.selectlistItems?.split(/;\s*/g),
+		selectedItemIndex: element.dataset?.selectedItemIndex,
 		visibleItemsCount: 4,
 	}
 

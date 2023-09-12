@@ -11,6 +11,10 @@
 	// .page__custom-radiobuttons
 
 	&__custom-radiobuttons {}
+
+	// .page__custom-select
+
+	&__custom-select {}
 }
 
 .custom-checkboxes {
@@ -87,4 +91,29 @@
 	&__radiobutton-label {
 		@extend %custom-component-label;
 	}
+}
+
+.custom-select {
+
+	// .custom-select__container
+
+	&__container {
+		display: grid;
+		grid-template-columns: repeat(2, min-content);
+		gap: rem(10);
+	}
+
+	// .custom-select__title
+
+	&__title {
+		grid-column: 1 / -1;
+	}
+
+	// .custom-select__selectlist-wrapper
+
+	&__selectlist-wrapper {}
+
+	// .custom-select__selectlist
+
+	&__selectlist {}
 }

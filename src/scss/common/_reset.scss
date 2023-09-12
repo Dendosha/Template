@@ -18,15 +18,17 @@
 	outline: none;
 }
 
-a:active {
-	outline: none;
-}
-
-nav,
+article,
+aside,
+details,
+figcaption,
+figure,
 footer,
 header,
-section,
-aside {
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
 
@@ -36,6 +38,7 @@ body {
 	width: 100%;
 	font-size: 100%;
 	list-style: none;
+	line-height: 1;
 	-ms-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;

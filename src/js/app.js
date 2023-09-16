@@ -1,11 +1,17 @@
 // Burger menu
 // import burgerInit from "./libs/burger.js"
 
+
+
 // Dynamic element mover
 // import elementMoverInit from "./libs/elementMover.js"
 
+
+
 // Tabs
 // import tabsInit from "./libs/tabs.js"
+
+
 
 // Custom select
 import SelectList from "./libs/selectlist.js";

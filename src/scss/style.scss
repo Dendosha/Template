@@ -2,15 +2,15 @@
 // Google Fonts
 // @import url('');
 
-// Local fonts
+// Local Fonts
 // @import "./fonts";
 
-// Icon Font
+// Icon Fonts
 // @import "./iconfonts";
 
 /* =============== Fonts =============== */
 
-// Nullify CSS
+// Reset CSS
 @import "./common/reset";
 
 // SASS/SCSS Functions
@@ -59,9 +59,11 @@ body {
 	}
 }
 
+// Header
 @import "./components/header";
 
 // Pages
 @import "./components/pages/index";
 
+// Footer
 @import "./components/footer";

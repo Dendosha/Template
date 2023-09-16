@@ -23,24 +23,6 @@
 	padding-inline: rem($containerPadding);
 }
 
-.--section-title {
-	font-size: rem(32);
-
-	&:not(:last-child) {
-		margin-bottom: rem(20);
-	}
-}
-
-%custom-component {
-	&:not(:last-child) {
-		margin-bottom: rem(10);
-	}
-}
-
-%custom-component-label {
-	font-size: rem(20);
-}
-
 .--burger {
 	display: none;
 

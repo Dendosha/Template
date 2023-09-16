@@ -1,33 +1,39 @@
 // Burger menu
 // import burgerInit from "./libs/burger.js"
 
+
+
 // Dynamic element mover
 // import elementMoverInit from "./libs/elementMover.js"
+
+
 
 // Tabs
 // import tabsInit from "./libs/tabs.js"
 
+
+
 // Custom select
-import SelectList from "./libs/selectlist.js";
+// import SelectList from "./libs/selectlist.js";
 
-const selectLists = document.querySelectorAll('[data-custom-element="selectlist"]')
+// const selectLists = document.querySelectorAll('[data-custom-element="selectlist"]')
 
-let selectListsCount = 0
-selectLists.forEach(element => {
-	selectListsCount++
+// let selectListsCount = 0
+// selectLists.forEach(element => {
+// 	selectListsCount++
 
-	const options = {
-		placeholder: element.dataset?.placeholder,
-		label: element.dataset?.label,
-		labelledby: element.dataset?.labelledby,
-		listboxId: element.dataset.listboxId ?? `selectlist-${selectListsCount}`,
-		selectlistItems: element.dataset?.selectlistItems?.split(/;\s*/g),
-		selectedItemIndex: element.dataset?.selectedItemIndex,
-		visibleItemsCount: 4,
-	}
+// 	const options = {
+// 		placeholder: element.dataset?.placeholder,
+// 		label: element.dataset?.label,
+// 		labelledby: element.dataset?.labelledby,
+// 		listboxId: element.dataset.listboxId ?? `selectlist-${selectListsCount}`,
+// 		selectlistItems: element.dataset?.selectlistItems?.split(/;\s*/g),
+// 		selectedItemIndex: element.dataset?.selectedItemIndex,
+// 		visibleItemsCount: 4,
+// 	}
 
-	new SelectList(element, options)
-})
+// 	new SelectList(element, options)
+// })
 
 // Page scripts
 import "./components/pages/index.js"

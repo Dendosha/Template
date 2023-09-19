@@ -9,12 +9,14 @@
 	}
 
 	@media (any-hover: hover) {
-		&>input[type="checkbox"]:not(:disabled)~.--checkbox-checkmark:hover {
-			box-shadow: 0 0 rem(8) var(--checkmark-color);
-		}
+		&:hover:has(input[type="checkbox"]:not(:disabled)) {
+			&>.--checkbox-checkmark {
+				box-shadow: 0 0 rem(8) var(--checkmark-color);
+			}
 
-		&>input[type="checkbox"]:not(:disabled)~.--checkbox-label:hover {
-			text-shadow: 0 0 rem(4) var(--checkmark-color);
+			&>.--checkbox-label {
+				text-shadow: 0 0 rem(4) var(--checkmark-color);
+			}
 		}
 	}
 
@@ -24,12 +26,22 @@
 		}
 	}
 
-	&:focus-within>input[type="checkbox"]+.--checkbox-checkmark {
-		box-shadow: 0 0 rem(8) var(--checkmark-color);
+	&:focus-within {
+		&>.--checkbox-checkmark {
+			box-shadow: 0 0 rem(8) var(--checkmark-color);
+		}
+
+		&>.--checkbox-label {
+			text-shadow: 0 0 rem(4) var(--checkmark-color);
+		}
 	}
 
-	&>input[type="checkbox"]:disabled+.--checkbox-checkmark {
-		filter: brightness(0.5);
+	&>input[type="checkbox"]:disabled {
+
+		&~.--checkbox-checkmark,
+		&~.--checkbox-label {
+			filter: brightness(0.5);
+		}
 	}
 }
 

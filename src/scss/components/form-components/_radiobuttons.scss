@@ -9,12 +9,14 @@
 	}
 
 	@media (any-hover: hover) {
-		&>input[type="radio"]:not(:disabled)~.--radiobutton-checkmark:hover {
-			box-shadow: 0 0 rem(8) var(--checkmark-color);
-		}
+		&:hover:has(input[type="radio"]:not(:disabled)) {
+			&>.--radiobutton-checkmark {
+				box-shadow: 0 0 rem(8) var(--checkmark-color);
+			}
 
-		&>input[type="radio"]:not(:disabled)~.--radiobutton-label:hover {
-			text-shadow: 0 0 rem(4) var(--checkmark-color);
+			&>.--radiobutton-label {
+				text-shadow: 0 0 rem(4) var(--checkmark-color);
+			}
 		}
 	}
 
@@ -24,12 +26,22 @@
 		}
 	}
 
-	&:focus-within>input[type="radio"]+.--radiobutton-checkmark {
-		box-shadow: 0 0 rem(8) var(--checkmark-color);
+	&:focus-within {
+		&>.--radiobutton-checkmark {
+			box-shadow: 0 0 rem(8) var(--checkmark-color);
+		}
+
+		&>.--radiobutton-label {
+			text-shadow: 0 0 rem(4) var(--checkmark-color);
+		}
 	}
 
-	&>input[type="radio"]:disabled+.--radiobutton-checkmark {
-		filter: brightness(0.5);
+	&>input[type="radio"]:disabled {
+
+		&~.--radiobutton-checkmark,
+		&~.--radiobutton-label {
+			filter: brightness(0.5);
+		}
 	}
 }
 

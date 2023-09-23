@@ -20,10 +20,10 @@ const scss = () => {
 				message: 'Error: <%= error.message %>'
 			})
 		))
-		.pipe(plugins.replace(/@img\//g, '../img/'))
 		.pipe(sass({
 			outputStyle: 'expanded',
 		}))
+		.pipe(plugins.replace(/@img\//g, '../img/'))
 		.pipe(plugins.gulpIf(
 			app.isBuild,
 			groupCssMediaQueries()

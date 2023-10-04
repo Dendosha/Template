@@ -6,6 +6,13 @@
 // Dynamic element mover
 // import elementMoverInit from "./libs/elementMover.js"
 
+// const elementsToMove = document.querySelectorAll('[data-mover]')
+// elementsToMove.forEach(element => {
+// 	const moveSettings = element.dataset.mover.split(',')
+// 	const newParent = document.getElementById(moveSettings[2].trim())
+// 	elementMoverInit(moveSettings[0].trim(), moveSettings[1].trim(), element, element.parentElement, newParent)
+// })
+
 
 
 // Tabs

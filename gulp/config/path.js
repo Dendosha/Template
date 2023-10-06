@@ -16,7 +16,7 @@ const path = {
 		html: `${srcFolder}/*.html`,
 		scss: `${srcFolder}/scss/style.scss`,
 		js: `${srcFolder}/js/app.js`,
-		img: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp}`,
+		img: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp,ico,xml,json}`,
 		svg: `${srcFolder}/img/**/*.svg`,
 		svgIcons: `${srcFolder}/svgicons/*.svg`,
 	},
